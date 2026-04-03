@@ -1,44 +1,33 @@
 import { MapPin, Phone, Clock, Facebook, Instagram } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const FooterSection = () => {
+  const { t } = useLanguage();
   return (
     <footer id="contact" className="bg-deep-charcoal text-primary-foreground">
       <div className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="section-title text-primary-foreground mb-2">find us</h2>
+            <h2 className="section-title text-primary-foreground mb-2">{t.footer.title}</h2>
           </div>
-
           <div className="grid md:grid-cols-3 gap-10 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start gap-3">
               <MapPin size={20} className="text-warm-gold" />
-              <p className="font-sans text-sm text-primary-foreground/80 leading-relaxed">
-                Goce Delcev 108<br />Tetovo 1220, North Macedonia
-              </p>
+              <p className="font-sans text-sm text-primary-foreground/80 leading-relaxed">Goce Delcev 108<br />Tetovo 1220, North Macedonia</p>
             </div>
-
             <div className="flex flex-col items-center md:items-start gap-3">
               <Phone size={20} className="text-warm-gold" />
-              <p className="font-sans text-sm text-primary-foreground/80">
-                +389 44 123 456
-              </p>
+              <p className="font-sans text-sm text-primary-foreground/80">+389 44 123 456</p>
               <div className="flex items-start gap-2 mt-1">
                 <Clock size={16} className="text-warm-gold mt-0.5" />
-                <div className="font-sans text-sm text-primary-foreground/80 leading-relaxed">
-                  <p>Mon – Sun: 09:00 – 23:00</p>
-                </div>
+                <p className="font-sans text-sm text-primary-foreground/80 leading-relaxed">{t.footer.hours}</p>
               </div>
             </div>
-
             <div className="flex flex-col items-center md:items-start gap-3">
-              <p className="font-sans text-sm text-primary-foreground/60 uppercase tracking-wide">Follow us</p>
+              <p className="font-sans text-sm text-primary-foreground/60 uppercase tracking-wide">{t.footer.follow}</p>
               <div className="flex gap-4">
-                <a href="#" className="text-primary-foreground/70 hover:text-warm-gold transition-colors" aria-label="Facebook">
-                  <Facebook size={22} />
-                </a>
-                <a href="#" className="text-primary-foreground/70 hover:text-warm-gold transition-colors" aria-label="Instagram">
-                  <Instagram size={22} />
-                </a>
+                <a href="#" className="text-primary-foreground/70 hover:text-warm-gold transition-colors" aria-label="Facebook"><Facebook size={22} /></a>
+                <a href="#" className="text-primary-foreground/70 hover:text-warm-gold transition-colors" aria-label="Instagram"><Instagram size={22} /></a>
                 <a href="#" className="text-primary-foreground/70 hover:text-warm-gold transition-colors" aria-label="Google">
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
@@ -52,11 +41,8 @@ const FooterSection = () => {
           </div>
         </div>
       </div>
-
       <div className="border-t border-primary-foreground/10 py-6">
-        <p className="text-center font-sans text-xs text-primary-foreground/40">
-          © 2026 Restaurant Belamia | Design & Web Development by Lovable
-        </p>
+        <p className="text-center font-sans text-xs text-primary-foreground/40">{t.footer.copyright}</p>
       </div>
     </footer>
   );
