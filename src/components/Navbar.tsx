@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Menu", href: "#menu" },
-  { label: "Reservations", href: "#reservations" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
-];
+const navAnchors = ["#home", "#about", "#menu", "#reservations", "#gallery", "#contact"] as const;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = navAnchors.map((href, i) => ({
+    label: Object.values(t.nav)[i],
+    href,
+  }));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -47,14 +47,40 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-primary-foreground"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-3">
+            {/* Language toggle */}
+            <div className="flex items-center border border-primary-foreground/20 rounded overflow-hidden">
+              <button
+                onClick={() => setLang("mk")}
+                className={`px-2 py-1 text-xs font-medium tracking-wide transition-colors duration-200 ${
+                  lang === "mk"
+                    ? "bg-warm-gold text-deep-charcoal"
+                    : "text-primary-foreground/70 hover:text-primary-foreground"
+                }`}
+              >
+                MK
+              </button>
+              <button
+                onClick={() => setLang("en")}
+                className={`px-2 py-1 text-xs font-medium tracking-wide transition-colors duration-200 ${
+                  lang === "en"
+                    ? "bg-warm-gold text-deep-charcoal"
+                    : "text-primary-foreground/70 hover:text-primary-foreground"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
+            {/* Mobile toggle */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden text-primary-foreground"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
