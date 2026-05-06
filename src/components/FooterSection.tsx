@@ -17,7 +17,7 @@ const FooterSection = () => {
             </div>
             <div className="flex flex-col items-center md:items-start gap-3">
               <Phone size={20} className="text-warm-gold" />
-              <p className="font-sans text-sm text-primary-foreground/80">+389 44 123 456</p>
+              <p className="font-sans text-sm text-primary-foreground/80">044 331 332</p>
               <div className="flex items-start gap-2 mt-1">
                 <Clock size={16} className="text-warm-gold mt-0.5" />
                 <p className="font-sans text-sm text-primary-foreground/80 leading-relaxed">{t.footer.hours}</p>
