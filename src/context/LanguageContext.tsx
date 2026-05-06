@@ -53,7 +53,7 @@ const translations = {
     footer: {
       title: "find us",
       follow: "Follow us",
-      copyright: "© 2026 Restaurant Belamia | Design & Web Development by Lovable",
+      copyright: "© 2026 Restaurant Belamia | Web Design & Development by Akvel Capital",
       hours: "Mon – Sun: 09:00 – 23:00",
     },
   },
@@ -107,7 +107,7 @@ const translations = {
     footer: {
       title: "пронајдете нè",
       follow: "Следете нè",
-      copyright: "© 2026 Ресторан Беламија | Дизајн и веб развој од Lovable",
+      copyright: "© 2026 Ресторан Беламија | Веб дизајн и развој од Akvel Capital",
       hours: "Пон – Нед: 09:00 – 23:00",
     },
   },
